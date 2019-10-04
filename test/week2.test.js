@@ -44,7 +44,7 @@ describe("isFromManchester", () => {
   });
 });
 
-describe.only("getBusNumbers", () => {
+describe("getBusNumbers", () => {
   // A bus can hold 40 people. This function should return how many buses are required for the number of people
   test("returns 1 if all the people fit in 1 bus", () => {
     expect(getBusNumbers(1)).toBe(1);
@@ -73,7 +73,7 @@ describe.only("getBusNumbers", () => {
   });
 });
 
-describe("countSheep", () => {
+describe.only("countSheep", () => {
   test("returns 0 if there are 0 sheep in the array", () => {
     const arr = ["dog", "badger", "dog", "dog", "chicken"];
     expect(countSheep(arr)).toBe(0);
