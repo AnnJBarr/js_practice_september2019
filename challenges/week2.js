@@ -49,6 +49,21 @@ function countSheep(arr) {
 function hasMPostCode(person) {
   if (person === undefined) throw new Error("person is required");
   // Your code here!
+  // I originally did the secondChar via a series of OR statements but refactored to ASCII codes as neater
+  // Left OR logic in comments to remind myself how I did it
+  //let secondChar = person.address.postCode[1];
+  if (person.address.postCode[0] === "M") {
+    if (person.address.postCode.charCodeAt(1) > 48 && person.address.postCode.charCodeAt(1) < 58)
+    //secondChar ==="1" || secondChar ==="2" || secondChar ==="3"|| secondChar ==="4" || secondChar ==="5" || secondChar ==="6" || secondChar ==="7" || secondChar ==="8" || secondChar ==="9") {
+    {
+      return true
+    } else {
+      return false
+    }
+
+  } else {
+    return false
+  }
 }
 
 module.exports = {
