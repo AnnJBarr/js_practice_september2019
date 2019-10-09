@@ -1,11 +1,9 @@
 function getSquares(nums) {
   if (nums === undefined) throw new Error("nums is required");
   // Your code here!
-  const squaredNums = [];
-  for (i = 0; i < nums.length; i++) {
-    let square = Math.pow(nums[i], 2)
-    squaredNums.push(square);
-  }
+  const squaredNums = nums.map(function (num) {
+    return Math.pow(num, 2);
+  });
   return squaredNums;
 }
 
