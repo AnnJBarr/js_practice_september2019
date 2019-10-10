@@ -10,6 +10,23 @@ function getSquares(nums) {
 function camelCaseWords(words) {
   if (words === undefined) throw new Error("words is required");
   // Your code here!
+  //if array.length < 2 return str=arr[0]
+  //for >=2 each item in turn, capitalise str=str+arr[i]
+  let camelStr = words[0];
+  //console.log(words[0])
+  //console.log(words.length)
+  if (words.length === 1) {
+    //console.log(camelStr);
+    return camelStr;
+  } else {
+    //console.log("array of 2+ items")
+    for (i = 1; i < words.length; i++) {
+      //console.log(words[i].charAt(0).toUpperCase() + words[i].slice(1));
+      camelStr = camelStr + (words[i].charAt(0).toUpperCase() + words[i].slice(1))
+      //console.log(camelStr)
+    }
+    return camelStr
+  }
 }
 
 function getTotalSubjects(people) {
