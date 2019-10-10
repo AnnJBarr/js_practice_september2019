@@ -13,17 +13,11 @@ function camelCaseWords(words) {
   //if array.length < 2 return str=arr[0]
   //for >=2 each item in turn, capitalise str=str+arr[i]
   let camelStr = words[0];
-  //console.log(words[0])
-  //console.log(words.length)
   if (words.length === 1) {
-    //console.log(camelStr);
     return camelStr;
   } else {
-    //console.log("array of 2+ items")
     for (i = 1; i < words.length; i++) {
-      //console.log(words[i].charAt(0).toUpperCase() + words[i].slice(1));
       camelStr = camelStr + (words[i].charAt(0).toUpperCase() + words[i].slice(1))
-      //console.log(camelStr)
     }
     return camelStr
   }
@@ -32,7 +26,20 @@ function camelCaseWords(words) {
 function getTotalSubjects(people) {
   if (people === undefined) throw new Error("people is required");
   // Your code here!
+  //array of objects
+  // for each item of array get .subjects length and count
+  let subjectCount = 0;
+  for (i = 0; i < people.length; i++) {
+    for (let key in people[i]) {
+      const value = people[i][key]
+      if (key === "subjects") {
+        subjectCount = subjectCount + value.length
+      }
+    }
+  }
+  return subjectCount
 }
+
 
 function checkIngredients(menu, ingredient) {
   if (menu === undefined) throw new Error("menu is required");
