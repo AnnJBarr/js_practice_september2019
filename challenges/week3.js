@@ -61,7 +61,13 @@ function duplicateNumbers(arr1, arr2) {
   if (arr1 === undefined) throw new Error("arr1 is required");
   if (arr2 === undefined) throw new Error("arr2 is required");
   // Your code here!
+  const compareArray = arr1.filter(element => arr2.includes(element))
+  compareArray.sort((a, b) => a - b);
+  const uniqueSet = new Set(compareArray)
+  const resultArr = [...uniqueSet]
+  return resultArr;
 }
+
 
 module.exports = {
   getSquares,
