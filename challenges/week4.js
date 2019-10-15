@@ -28,7 +28,8 @@ function findVerbs(words) {
   // Your code here
   let verbsFound = [];
   words.forEach(function (findTo) {
-    if (findTo[0] === "t" && findTo[1] === "o" && findTo[2] === " ") {
+    //if (findTo[0] === "t" && findTo[1] === "o" && findTo[2] === " ") 
+    if (findTo.slice(0, 3).match(/to /)) {
       verbsFound.push(findTo);
     }
   })
