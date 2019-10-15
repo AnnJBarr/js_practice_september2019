@@ -51,6 +51,11 @@ function getIntegers(nums) {
 function getCities(users) {
   if (!users) throw new Error("users is required");
   // Your code here
+  let userCities = []
+  users.forEach(function (userData) {
+    userCities.push(userData.data.city.displayName)
+  })
+  return userCities
 }
 
 function getSquareRoots(nums) {
