@@ -14,6 +14,13 @@ function findNamesBeginningWith(names, char) {
   if (!names) throw new Error("names is required");
   if (!char) throw new Error("char is required");
   // Your code here
+  let foundNames = [];
+  names.forEach(function (firstLetter) {
+    if (firstLetter[0] === char) {
+      foundNames.push(firstLetter)
+    }
+  })
+  return foundNames
 }
 
 function findVerbs(words) {
