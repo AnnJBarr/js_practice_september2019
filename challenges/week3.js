@@ -16,7 +16,7 @@ function camelCaseWords(words) {
   if (words.length === 1) {
     return camelStr;
   } else {
-    for (i = 1; i < words.length; i++) {
+    for (let i = 1; i < words.length; i++) {
       camelStr = camelStr + (words[i].charAt(0).toUpperCase() + words[i].slice(1))
     }
     return camelStr
@@ -46,12 +46,9 @@ function checkIngredients(menu, ingredient) {
   if (!ingredient) throw new Error("ingredient is required");
   // Your code here!
   let ingredientFound = false;
-  for (i = 0; i < menu.length; i++) {
-    for (let key in menu[i]) {
-      const value = menu[i][key]
-      if (key === "ingredients" && value.includes(ingredient)) {
-        ingredientFound = true;
-      }
+  for (let i = 0; i < menu.length; i++) {
+    if (menu[i].ingredients.includes(ingredient)) {
+      ingredientFound = true;
     }
   }
   return ingredientFound
