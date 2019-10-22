@@ -24,11 +24,12 @@ function findNamesBeginningWith(names, char) {
 function findVerbs(words) {
   if (!words) throw new Error("words is required");
   // Your code here
-  let verbsFound = [];
-  words.forEach(function (findTo) {
-    //if (findTo[0] === "t" && findTo[1] === "o" && findTo[2] === " ") 
-    if (findTo.slice(0, 3).match(/to /)) {
-      verbsFound.push(findTo);
+  const verbsFound = words.filter(function (word) {
+    const findTo = (word.slice(0, 3));
+    if (findTo === "to ") {
+      return true
+    } else {
+      return false
     }
   })
   return verbsFound;
