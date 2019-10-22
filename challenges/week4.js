@@ -59,9 +59,8 @@ function getCities(users) {
 function getSquareRoots(nums) {
   if (!nums) throw new Error("nums is required");
   // Your code here
-  let squareRoots = [];
-  nums.forEach(function (n) {
-    squareRoots.push(Math.round(Math.sqrt(n) * 100) / 100);
+  const squareRoots = nums.map(n => {
+    return Math.round(Math.sqrt(n) * 100) / 100
   });
   return squareRoots
 }
