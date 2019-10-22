@@ -50,9 +50,9 @@ function getIntegers(nums) {
 function getCities(users) {
   if (!users) throw new Error("users is required");
   // Your code here
-  let userCities = []
-  users.forEach(function (userData) {
-    userCities.push(userData.data.city.displayName)
+  const userCities = users.map(function (user) {
+    const userData = user.data.city.displayName
+    return userData
   })
   return userCities
 }
