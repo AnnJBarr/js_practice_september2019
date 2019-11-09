@@ -14,6 +14,14 @@ const findNextNumber = (nums, n) => {
 const count1sand0s = str => {
   if (str === undefined) throw new Error("str is required");
   // Your code here!
+  var totalOnes = ([...str].filter(char => char === "1")).length
+var totalZeroes = str.length - totalOnes
+
+var arrayObj = { 1: totalOnes, 0: totalZeroes};
+//console.log(anObj)
+
+
+return arrayObj
 };
 
 const reverseNumber = n => {
