@@ -13,13 +13,9 @@ const findNextNumber = (nums, n) => {
 
 const count1sand0s = str =>
   ({ 1: (([...str].filter(char => char === "1")).length), 0: (str.length - ([...str].filter(char => char === "1")).length) });
-  
 
-const reverseNumber = n => {
-  if (n === undefined) throw new Error("n is required");
-  // Your code here!
-  return parseFloat(n.toString().split('').reverse().join(''))
-};
+
+const reverseNumber = n => parseFloat(n.toString().split('').reverse().join(''));
 
 const sumArrays = arrs => {
   if (arrs === undefined) throw new Error("arrs is required");
