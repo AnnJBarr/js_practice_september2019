@@ -11,12 +11,9 @@ const findNextNumber = (nums, n) => {
   return nextNum
 };
 
-const count1sand0s = str => {
-  if (str === undefined) throw new Error("str is required");
-  // Your code here!
-  var arrayObj = { 1: (([...str].filter(char => char === "1")).length), 0: (str.length - ([...str].filter(char => char === "1")).length) };
-  return arrayObj
-};
+const count1sand0s = str =>
+  ({ 1: (([...str].filter(char => char === "1")).length), 0: (str.length - ([...str].filter(char => char === "1")).length) });
+  
 
 const reverseNumber = n => {
   if (n === undefined) throw new Error("n is required");
