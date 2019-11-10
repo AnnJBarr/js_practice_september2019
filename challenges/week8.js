@@ -39,7 +39,6 @@ const sumArrays = arrs => {
 const arrShift = arr => {
   if (arr === undefined) throw new Error("arr is required");
   // Your code here!
-  //const mappedArr = arr.map(x => x);
   const reverseArr = (arr.map(x => x)).reverse()
   if (arr.length > 1) {
     arr[0] = reverseArr[0]
@@ -52,6 +51,20 @@ const findNeedle = (haystack, searchTerm) => {
   if (haystack === undefined) throw new Error("haystack is required");
   if (searchTerm === undefined) throw new Error("searchTerm is required");
   // Your code here!
+  var found = undefined
+  for (let key in haystack) {
+    if (typeof haystack[key] === 'string') {
+      const lowerCase = haystack[key].toLowerCase()
+      if (lowerCase.includes(searchTerm.toLowerCase())) {
+        found = true
+      } else {
+        if (found === undefined) {
+          found = false
+        }
+      }
+    }
+  }
+  return found
 };
 
 const getWordFrequencies = str => {
