@@ -1,5 +1,6 @@
 const {
-    sumMultiples
+    sumMultiples,
+    isValidDNA
 } = require("../challenges/week9");
 
 describe("sumMultiples", () => {
@@ -20,3 +21,25 @@ describe("sumMultiples", () => {
     });
 
 });
+
+describe("isValidDNA", () => {
+    test("returns true if string only contains C, G, T, A", () => {
+        expect(isValidDNA("CGTAGCAATCG")).toBe(true);
+        expect(isValidDNA("GTAC")).toBe(true);
+        expect(isValidDNA("TAGCACTG")).toBe(true);
+        expect(isValidDNA("AGTCAGTCAGTC")).toBe(true);
+    });
+
+    test("returns false if string contains any other characters", () => {
+        expect(isValidDNA("CGBAGHGAJ")).toBe(false);
+        expect(isValidDNA("S")).toBe(false);
+        expect(isValidDNA("CDEF")).toBe(false)
+    });
+
+    test("returns true even if characters lower or mixed case", () => {
+        expect(isValidDNA("cgtacgta")).toBe(true);  
+        expect(isValidDNA("cGTAagttcc")).toBe(true);
+              
+    });
+
+})
