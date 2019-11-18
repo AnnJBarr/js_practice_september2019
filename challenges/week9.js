@@ -43,6 +43,11 @@ const isValidDNA = str => {
  */
 const getComplementaryDNA = str => {
   if (str === undefined) throw new Error("str is required");
+  // check string is DNA if not return "your input wasn't valid DNA"
+  // turn string to upper case character array
+  // map new array using T->A C->G rules
+  // stringify new array and return
+  
 };
 
 /**
