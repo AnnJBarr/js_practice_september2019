@@ -44,11 +44,11 @@ describe("isValidDNA", () => {
 
 });
 
-describe("getComplementaryDNA", () => {
+describe.only("getComplementaryDNA", () => {
     test("returns DNA pairs - T always pairs with A, and C always pairs with G", () => {
         expect(getComplementaryDNA("CGTAGCAATCG")).toBe("GCATCGTTAGC");
         expect(getComplementaryDNA("GTAC")).toBe("CATG");
-        expect(getComplementaryDNA("TAGCACTG")).toBe("ATCGYGAC");
+        expect(getComplementaryDNA("TAGCACTG")).toBe("ATCGTGAC");
     });
 
     test("returns 'your input wasn't valid DNA' if input string contains characters other than CTGA", () => {
