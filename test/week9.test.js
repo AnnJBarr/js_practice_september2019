@@ -66,10 +66,10 @@ describe("getComplementaryDNA", () => {
 
 describe("isItPrime", () => {
     test("returns true for numbers only divisible by 1 and itself", () => {
-        expect(isItPrime(2)).teBe(true);
-        expect(isItPrime(3)).teBe(true);
-        expect(isItPrime(7)).teBe(true);
-        expect(isItPrime(555365387)).teBe(true);
+        expect(isItPrime(2)).toBe(true);
+        expect(isItPrime(3)).toBe(true);
+        expect(isItPrime(7)).toBe(true);
+        expect(isItPrime(555365387)).toBe(true);
     });
 
     test("returns false for decimal numbers, primes must be integers", () => {
@@ -84,7 +84,7 @@ describe("isItPrime", () => {
         expect(isItPrime(-3)).toBe(false);
     });
 
-    test("input must be a number not a string of a numer", () => {
+    test("input must be a number not a string of a number", () => {
         expect(isItPrime("3")).toBe(false);
     });
 
