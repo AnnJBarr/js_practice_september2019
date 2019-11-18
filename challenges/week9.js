@@ -74,6 +74,9 @@ const getComplementaryDNA = str => {
  */
 const isItPrime = n => {
   if (n === undefined) throw new Error("n is required");
+  //check number is not a string, is positive, an integer and greater than 1
+  //divide number by each of 2,3,5,7 if any % = 0 => not prime
+  if(Number.isInteger(n) && )
 };
 
 /**
