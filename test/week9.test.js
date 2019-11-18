@@ -1,7 +1,8 @@
 const {
     sumMultiples,
     isValidDNA,
-    getComplementaryDNA
+    getComplementaryDNA,
+    isItPrime
 } = require("../challenges/week9");
 
 describe("sumMultiples", () => {
@@ -44,7 +45,7 @@ describe("isValidDNA", () => {
 
 });
 
-describe.only("getComplementaryDNA", () => {
+describe("getComplementaryDNA", () => {
     test("returns DNA pairs - T always pairs with A, and C always pairs with G", () => {
         expect(getComplementaryDNA("CGTAGCAATCG")).toBe("GCATCGTTAGC");
         expect(getComplementaryDNA("GTAC")).toBe("CATG");
@@ -61,3 +62,31 @@ describe.only("getComplementaryDNA", () => {
     });
 
 });
+
+
+describe("isItPrime", () => {
+    test("returns true for numbers only divisible by 1 and itself", () => {
+        expect(isItPrime(2)).teBe(true);
+        expect(isItPrime(3)).teBe(true);
+        expect(isItPrime(7)).teBe(true);
+        expect(isItPrime(555365387)).teBe(true);
+    });
+
+    test("returns false for decimal numbers, primes must be integers", () => {
+        expect(isItPrime(3.1)).toBe(false);
+    });
+
+    test("1 is not a prime number", () => {
+        expect(isItPrime(1)).toBe(false);
+    });
+
+    test("negative integers cannot be primes", () => {
+        expect(isItPrime(-3)).toBe(false);
+    });
+
+    test("input must be a number not a string of a numer", () => {
+        expect(isItPrime("3")).toBe(false);
+    });
+
+
+})
