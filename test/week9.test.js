@@ -1,6 +1,7 @@
 const {
     sumMultiples,
-    isValidDNA
+    isValidDNA,
+    getComplementaryDNA
 } = require("../challenges/week9");
 
 describe("sumMultiples", () => {
@@ -37,9 +38,26 @@ describe("isValidDNA", () => {
     });
 
     test("returns true even if characters lower or mixed case", () => {
-        expect(isValidDNA("cgtacgta")).toBe(true);  
+        expect(isValidDNA("cgtacgta")).toBe(true);
         expect(isValidDNA("cGTAagttcc")).toBe(true);
-              
     });
 
-})
+});
+
+describe("getComplementaryDNA", () => {
+    test("returns DNA pairs - T always pairs with A, and C always pairs with G", () => {
+        expect(getComplementaryDNA("CGTAGCAATCG")).toBe("GCATCGTTAGC");
+        expect(getComplementaryDNA("GTAC")).toBe("CATG");
+        expect(getComplementaryDNA("TAGCACTG")).toBe("ATCGYGAC");
+    });
+
+    test("returns 'your input wasn't valid DNA' if input string contains characters other than CTGA", () => {
+        expect(getComplementaryDNA("CGBAGHGAJ")).toBe("your input wasn't valid DNA");
+    });
+
+    test("returns upper case pairs even if input string is lowe or mixed case", () => {
+        expect(getComplementaryDNA("cgtacgta")).toBe("GCATGCAT");
+        expect(getComplementaryDNA("cGTAagttcc")).toBe("GCATTCAAGG");
+    });
+
+});
