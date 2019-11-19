@@ -93,23 +93,23 @@ describe("isItPrime", () => {
 
 describe("createMatrix", () => {
     test("returns 3x3 matrix of arrays with string input and n=3", () => {
-        expect(createMatrix(3, "string")).toBe([["string", "string", "string"], ["string", "string", "string"], ["string", "string", "string"]]);
+        expect(createMatrix(3, "string")).toEqual([["string", "string", "string"], ["string", "string", "string"], ["string", "string", "string"]]);
     });
 
     test("returns 2x2 matrix of arrays with number input and n=2", () => {
-        expect(createMatrix(2, 17)).toBe([[17, 17], [17, 17]]);
+        expect(createMatrix(2, 17)).toEqual([[17, 17], [17, 17]]);
     });
 
     test("returns 4x4 matrix of arrays with boolean input and n=4", () => {
-        expect(createMatrix(4, false)).toBe([[false, false, false, false], [false, false, false, false], [false, false, false, false], [false, false, false, false]])
+        expect(createMatrix(4, false)).toEqual([[false, false, false, false], [false, false, false, false], [false, false, false, false], [false, false, false, false]])
     });
 
     test("returns a single array when n=1", () => {
-        expect(createMatrix(1, "foo")).toBe(["foo"]);
+        expect(createMatrix(1, "foo")).toEqual(["foo"]);
     });
 
     test("returns empty array when n < 1", () => {
-        expect(createMatrix(-3, "foo")).toBe([]);
+        expect(createMatrix(-3, "foo")).toEqual([]);
     });
 
 })
