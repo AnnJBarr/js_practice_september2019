@@ -138,8 +138,8 @@ const areWeCovered = (staff, day) => {
   if (day.toLowerCase() === "monday" || day.toLowerCase() === "tuesday" || day.toLowerCase() === "wednesday" || day.toLowerCase() === "thursday" || day.toLowerCase() === "friday" || day.toLowerCase() === "saturday" || day.toLowerCase() === "sunday") {
     let staffCount = 0
     for (let i = 0; i < staff.length; i++) {
-      const lcDays = staff[i].rota.map(function (day) {
-        return day.toLowerCase();
+      const lcDays = staff[i].rota.map(function (staffDay) {
+        return staffDay.toLowerCase();
       })
       for (let i = 0; i < lcDays.length; i++) {
         if (lcDays[i].includes(day.toLowerCase())) {
