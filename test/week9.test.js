@@ -3,7 +3,8 @@ const {
     isValidDNA,
     getComplementaryDNA,
     isItPrime,
-    createMatrix
+    createMatrix,
+    areWeCovered
 } = require("../challenges/week9");
 
 describe("sumMultiples", () => {
@@ -111,5 +112,84 @@ describe("createMatrix", () => {
     test("returns empty array when n < 1", () => {
         expect(createMatrix(-3, "foo")).toEqual([]);
     });
+
+});
+
+describe("areWeCovered", () => {
+    test("returns false when <3 staff", () => {
+        expect(areWeCovered([], "Monday")).toBe(false);
+        expect(areWeCovered([], "Tuesday")).toBe(false);
+        expect(areWeCovered([], "Wednesday")).toBe(false);
+        expect(areWeCovered([], "Thursday")).toBe(false);
+        expect(areWeCovered([], "Friday")).toBe(false);
+        expect(areWeCovered([], "Saturday")).toBe(false);
+        expect(areWeCovered([], "Sunday")).toBe(false);
+    });
+    
+    test("returns false when <3 staff", () => {
+        const staff = [
+            {name: "Lizzie", rota: ["Monday", "Tuesday", "Wednesday"]},
+            {name: "Rob", rota: ["Monday", "Tuesday", "Wednesday"]},
+            {name: "Steven", rota: ["Monday", "Tuesday", "Wednesday"]},
+            {name: "Andy", rota: ["Monday", "Tuesday", "Wednesday"]}
+    ]
+        expect(areWeCovered(staff, "Thursday")).toBe(false);
+        expect(areWeCovered(staff, "Friday")).toBe(false);
+        expect(areWeCovered(staff, "Saturday")).toBe(false);
+        expect(areWeCovered(staff, "Sunday")).toBe(false);
+
+    });
+
+    test("returns true when =3 staff", () => {
+        const staff = [
+            {name: "Lizzie", rota: ["Monday", "Tuesday", "Wednesday"]},
+            {name: "Rob", rota: ["Monday", "Tuesday", "Wednesday"]},
+            {name: "Steven", rota: ["Monday", "Tuesday", "Wednesday"]}
+    ]
+        expect(areWeCovered(staff, "Monday")).toBe(true);
+        expect(areWeCovered(staff, "Tuesday")).toBe(true);
+        expect(areWeCovered(staff, "Wednesday")).toBe(true);
+  
+    });
+
+    test("returns true when >3 staff", () => {
+        const staff = [
+            {name: "Lizzie", rota: ["Monday", "Tuesday", "Wednesday"]},
+            {name: "Rob", rota: ["Monday", "Tuesday", "Wednesday"]},
+            {name: "Steven", rota: ["Monday", "Tuesday", "Wednesday"]},
+            {name: "Andy", rota: ["Monday", "Tuesday", "Wednesday"]}
+    ]
+        expect(areWeCovered(staff, "Monday")).toBe(true);
+        expect(areWeCovered(staff, "Tuesday")).toBe(true);
+        expect(areWeCovered(staff, "Wednesday")).toBe(true);
+  
+    });
+
+    test("returns true when >3 staff and day in lower or mixed case", () => {
+        const staff = [
+            {name: "Lizzie", rota: ["Monday", "Tuesday", "Wednesday"]},
+            {name: "Rob", rota: ["Monday", "Tuesday", "Wednesday"]},
+            {name: "Steven", rota: ["Monday", "Tuesday", "Wednesday"]},
+            {name: "Andy", rota: ["Monday", "Tuesday", "Wednesday"]}
+    ]
+        expect(areWeCovered(staff, "monday")).toBe(true);
+        expect(areWeCovered(staff, "TueSday")).toBe(true);
+        expect(areWeCovered(staff, "wednesDAy")).toBe(true);
+  
+    });
+
+    test("returns 'please make sure you enter a day' when >3 staff and day is not a day string", () => {
+        const staff = [
+            {name: "Lizzie", rota: ["Monday", "Tuesday", "Wednesday"]},
+            {name: "Rob", rota: ["Monday", "Tuesday", "Wednesday"]},
+            {name: "Steven", rota: ["Monday", "Tuesday", "Wednesday"]},
+            {name: "Andy", rota: ["Monday", "Tuesday", "Wednesday"]}
+    ]
+        expect(areWeCovered(staff, "Caturday")).toBe('please make sure you enter a day');
+        expect(areWeCovered(staff, "frank")).toBe('please make sure you enter a day');
+        expect(areWeCovered(staff, "dsafjlkjljdsf")).toBe('please make sure you enter a day');
+  
+    });
+
 
 })
