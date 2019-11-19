@@ -3,9 +3,8 @@ const findNextNumber = (nums, n) => {
   if (n === undefined) throw new Error("n is required");
   // Your code here!
   let nextNum = null;
-  let index = nums.indexOf(n);
-  if ((index + 1 < nums.length) && index > 0) {
-    nextNum = nums[index + 1]
+  if (((nums.indexOf(n) + 1) < nums.length) && nums.indexOf(n) >= 0) {
+    nextNum = nums[(nums.indexOf(n)) + 1]
   }
   return nextNum
 };
