@@ -132,29 +132,27 @@ const createMatrix = (n, fill) => {
 const areWeCovered = (staff, day) => {
   if (staff === undefined) throw new Error("staff is required");
   if (day === undefined) throw new Error("day is required");
-  if(staff.length === 0){
+  if (staff.length === 0) {
     return false
   }
-
-let staffCount = 0
-for (let i=0; i<staff.length; i++){
-  const lcDays = staff[i].rota.map(function(day){
-    return day.toLowerCase();
-  })
-
-for(let i=0; i<lcDays.length; i++){
-      if(lcDays[i].includes(day.toLowerCase())) {
-        staffCount +=1
+  if (day.toLowerCase() === "monday" || day.toLowerCase() === "tuesday" || day.toLowerCase() === "wednesday" || day.toLowerCase() === "thursday" || day.toLowerCase() === "friday" || day.toLowerCase() === "saturday" || day.toLowerCase() === "sunday") {
+    let staffCount = 0
+    for (let i = 0; i < staff.length; i++) {
+      const lcDays = staff[i].rota.map(function (day) {
+        return day.toLowerCase();
+      })
+      for (let i = 0; i < lcDays.length; i++) {
+        if (lcDays[i].includes(day.toLowerCase())) {
+          staffCount += 1
+        }
       }
     }
-}    
-//console.log(staffCount)
-if(staffCount > 2){return true
-  } else {
-    return false
-          }
-
-
+    if (staffCount > 2) {
+      return true
+    } else {
+      return false
+    }
+  } else { return 'please make sure you enter a day' }
 };
 
 module.exports = {
