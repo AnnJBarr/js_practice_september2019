@@ -2,7 +2,8 @@ const {
     sumMultiples,
     isValidDNA,
     getComplementaryDNA,
-    isItPrime
+    isItPrime,
+    createMatrix
 } = require("../challenges/week9");
 
 describe("sumMultiples", () => {
@@ -88,5 +89,27 @@ describe("isItPrime", () => {
         expect(isItPrime("3")).toBe(false);
     });
 
+});
+
+describe("createMatrix", () => {
+    test("returns 3x3 matrix of arrays with string input and n=3", () => {
+        expect(createMatrix(3, "string")).toBe([["string", "string", "string"], ["string", "string", "string"], ["string", "string", "string"]]);
+    });
+
+    test("returns 2x2 matrix of arrays with number input and n=2", () => {
+        expect(createMatrix(2, 17)).toBe([[17, 17], [17, 17]]);
+    });
+
+    test("returns 4x4 matrix of arrays with boolean input and n=4", () => {
+        expect(createMatrix(4, false)).toBe([[false, false, false, false], [false, false, false, false], [false, false, false, false], [false, false, false, false]])
+    });
+
+    test("returns a single array when n=1", () => {
+        expect(createMatrix(1, "foo")).toBe(["foo"]);
+    });
+
+    test("returns empty array when n < 1", () => {
+        expect(createMatrix(-3, "foo")).toBe([]);
+    });
 
 })

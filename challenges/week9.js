@@ -76,8 +76,8 @@ const isItPrime = n => {
   if (n === undefined) throw new Error("n is required");
   //check number is not a string, is positive, an integer and greater than 1
   //divide number by each of 2,3,5,7 if any % = 0 => not prime
-  if(Number.isInteger(n) && typeof n === "number" && n>1){
-    if((n !==2 && n % 2 === 0) || (n !== 3 && n % 3 === 0) || (n !== 5 && n % 5 === 0) || (n !==7 && n % 7 === 0) ) {
+  if (Number.isInteger(n) && typeof n === "number" && n > 1) {
+    if ((n !== 2 && n % 2 === 0) || (n !== 3 && n % 3 === 0) || (n !== 5 && n % 5 === 0) || (n !== 7 && n % 7 === 0)) {
       return false
     } else {
       return true
