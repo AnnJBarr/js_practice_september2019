@@ -47,21 +47,17 @@ const getComplementaryDNA = str => {
     return "your input wasn't valid DNA"
   } else {
     const compDNAStr = (str.toUpperCase().split('').map(function (item) {
-      if (item === "C") {
-        return "G"
-      } else {
-        if (item === "G") {
-          return "C"
-        } else {
-          if (item === "A") {
-            return "T"
-          } else {
-            if (item === "T") {
-              return "A"
-            }
-          }
-        }
+      switch (item) {
+        case "G":
+          return "C";
+        case "C":
+          return "G";
+        case "T":
+          return "A";
+        case "A":
+          return "T";
       }
+
     })).join('');
     return compDNAStr;
   }
