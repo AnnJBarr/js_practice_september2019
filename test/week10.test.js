@@ -41,6 +41,11 @@ describe("createRange", () => {
         expect(createRange(-10, 0, 2)).toEqual([-10, -8, -6, -4, -2, 0]);
     });
 
+    //deals with negative step and counts backwards
+    test("returns sequential count if step defined", () => {
+        expect(createRange(10, 1, -2)).toEqual([10, 8, 6, 4, 2]);
+    });
+
     //deals with decimals in start finish
 
     //deals with decimals in step
