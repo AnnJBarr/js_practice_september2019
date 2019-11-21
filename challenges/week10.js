@@ -29,7 +29,7 @@ const createRange = (start, end, step) => {
   if (step === undefined) {
     step = 1;
   }
-  if (step>0 && start > end){
+  if ((step > 0 && start > end) || (step < 0 && end > start)) {
     return "it is not possible to create a range with these parameters"
   }
   if (step < 0) {
