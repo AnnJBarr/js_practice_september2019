@@ -105,7 +105,7 @@ const getScreentimeAlertList = (users, date) => {
 const hexToRGB = hexStr => {
   if (hexStr === undefined) throw new Error("hexStr is required");
   const hexToDec = str => {
-    switch (str) {
+    switch (str.toUpperCase()) {
       case '0': return 0
       case '1': return 1
       case '2': return 2
