@@ -104,9 +104,6 @@ const getScreentimeAlertList = (users, date) => {
  */
 const hexToRGB = hexStr => {
   if (hexStr === undefined) throw new Error("hexStr is required");
-  let redHex = hexStr.slice(1, 3);
-  let greenHex = hexStr.slice(3, 5);
-  let blueHex = hexStr.slice(5, 7)
   const hexToDec = str => {
     switch (str) {
       case '0': return 0
@@ -130,7 +127,7 @@ const hexToRGB = hexStr => {
   const twoDig = num => {
     return (hexToDec(num[0])) * 16 + hexToDec(num[1])
   }
-  return ("rgb(" + twoDig(redHex) + ',' + twoDig(greenHex) + ',' + twoDig(blueHex) + ")")
+  return ("rgb(" + twoDig(hexStr.slice(1, 3)) + ',' + twoDig(hexStr.slice(3, 5)) + ',' + twoDig(hexStr.slice(5, 7)) + ")")
 };
 
 /**
