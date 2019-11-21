@@ -64,4 +64,8 @@ describe("createRange", () => {
         expect(createRange(10, 1, 2)).toBe("it is not possible to create a range with these parameters");
         expect(createRange(1, 10, -2)).toBe("it is not possible to create a range with these parameters");
     });
+
+    test("returns error message if step called with value 0", () => {
+        expect(createRange(10, 1, 0)).toBe("it is not possible to create a range with these parameters");
+    }); 
 })
