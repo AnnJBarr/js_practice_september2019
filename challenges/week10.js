@@ -77,27 +77,18 @@ const getScreentimeAlertList = (users, date) => {
   if (date === undefined) throw new Error("date is required");
   const alertedUsers = []
   users.forEach(x => {
-    //console.log(x.screenTime)
-    let userScreenTime = x.screenTime
-    userScreenTime.forEach(y => {
+    x.screenTime.forEach(y => {
       if (y.date === date) {
         let totalMinutes = 0
-        //console.log(y.usage)
         for (let key in y.usage) {
-          const minutes = y.usage[key]
-          //console.log(minutes);
-          totalMinutes += minutes
-          //console.log(totalMinutes)
-
+          totalMinutes += y.usage[key]
         }
-        if (totalMinutes > 100) {//console.log("alert " + x.username)
+        if (totalMinutes > 100) {
           alertedUsers.push(x.username)
-          //console.log(alertedUsers)
         }
       }
     })
   })
-
   return alertedUsers
 };
 
