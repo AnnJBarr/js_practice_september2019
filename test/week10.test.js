@@ -153,4 +153,9 @@ describe("hextoRGB", () => {
         expect(hexToRGB("#FFFFFF")).toBe("rgb(255,255,255)");
         expect(hexToRGB("#AAEEC1")).toBe("rgb(170,238,193)");
     });
+
+    test("deals with hex string in lower or mixed case", () => {
+        expect(hexToRGB("#ffffff")).toBe("rgb(255,255,255)");
+        expect(hexToRGB("#AaEEc1")).toBe("rgb(170,238,193)");
+    });
 });
