@@ -158,4 +158,8 @@ describe("hextoRGB", () => {
         expect(hexToRGB("#ffffff")).toBe("rgb(255,255,255)");
         expect(hexToRGB("#AaEEc1")).toBe("rgb(170,238,193)");
     });
+
+    test("deals with hex string without leading #", () => {
+        expect(hexToRGB("FFFFFF")).toBe("your hex string is not in the correct format");
+    });
 });
