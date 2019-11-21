@@ -28,7 +28,7 @@ describe("sumDigits", () => {
 
 describe("createRange", () => {
     test("returns sequential count if no step defined", () => {
-        expect(createRange(1, 5)).toBe([1, 2, 3, 4, 5]);
+        expect(createRange(1, 5)).toEqual([1, 2, 3, 4, 5]);
     });
 
     //deals with step
