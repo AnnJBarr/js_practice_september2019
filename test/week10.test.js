@@ -148,7 +148,9 @@ describe("getScreentimeAlertList", () => {
 })
 
 describe("hextoRGB", () => {
-    test("returns rgb(0,0,0) when input string #000000", () => {
+    test("returns rgb() output when input string #", () => {
         expect(hexToRGB("#000000")).toBe("rgb(0,0,0)");
-    })
-})
+        expect(hexToRGB("#FFFFFF")).toBe("rgb(255,255,255)");
+        expect(hexToRGB("#AAEEC1")).toBe("rgb(170,238,193)");
+    });
+});
