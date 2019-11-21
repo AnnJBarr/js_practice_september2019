@@ -37,6 +37,9 @@ describe("createRange", () => {
     });
 
     //deals with negative numbers
+    test("returns sequential count if start is a negtative number", () => {
+        expect(createRange(-10, 0, 2)).toEqual([-10, -8, -6, -4, -2, 0]);
+    });
 
     //deals with decimals in start finish
 
