@@ -47,6 +47,13 @@ describe("createRange", () => {
     });
 
     //deals with decimals in start finish
+    test("returns sequential count if decimal start", () => {
+        expect(createRange(1.7, 10, 2)).toEqual([1.7, 3.7, 5.7, 7.7, 9.7]);
+    });
+
+    test("returns sequential count if decimal end", () => {
+        expect(createRange(1.7, 11.7, 2)).toEqual([1.7, 3.7, 5.7, 7.7, 9.7, 11.7]);
+    });
 
     //deals with decimals in step
 })
