@@ -3,8 +3,14 @@
  * @param {Number} n
  */
 const sumDigits = n => {
-  if (n === undefined) throw new Error("n is required");
   const result = null;
+  let total = 0;
+  if (typeof (n) === "number") {
+    for (let i = 0; i < n.toString().length; i++) {
+      total = total + parseFloat(n.toString()[i]);
+    }
+    return total;
+  }
   return result;
 };
 

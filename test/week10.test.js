@@ -17,4 +17,6 @@ describe("sumDigits", () => {
         expect(sumDigits(65879)).toB(35)
     });
 
+    //deal with decimal numbers
+
 })
