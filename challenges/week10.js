@@ -29,13 +29,16 @@ const createRange = (start, end, step) => {
   if (step === undefined) {
     step = 1;
   }
+  if (step>0 && start > end){
+    return "it is not possible to create a range with these parameters"
+  }
   if (step < 0) {
     for (let i = start; i >= end; i = i + step) {
       range.push(i);
     }
   }
   for (let i = start; i <= end; i = i + step) {
-    range.push(i);
+    range.push(parseFloat(i.toPrecision(3)));
   }
   return range
 };
