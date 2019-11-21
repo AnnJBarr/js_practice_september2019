@@ -25,6 +25,12 @@ const sumDigits = n => {
 const createRange = (start, end, step) => {
   if (start === undefined) throw new Error("start is required");
   if (end === undefined) throw new Error("end is required");
+  const range = [];
+  //count = 0
+  for(let i = start; i<=end; i++){
+    range.push(i);
+  }
+  return range
 };
 
 /**
