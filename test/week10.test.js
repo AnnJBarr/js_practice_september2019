@@ -1,6 +1,7 @@
-const { 
+const {
     sumDigits,
-    createRange
+    createRange,
+    getScreentimeAlertList
 } = require("../challenges/week10");
 
 
@@ -10,15 +11,15 @@ describe("sumDigits", () => {
         expect(sumDigits([1, 2, 3])).toBe(null);
         expect(sumDigits(true)).toBe(null);
     });
-    
-    test("returns sum of digits in a number", ()=> {
+
+    test("returns sum of digits in a number", () => {
         expect(sumDigits(123)).toBe(6);
         expect(sumDigits(49)).toBe(13);
         expect(sumDigits(3)).toBe(3);
         expect(sumDigits(65879)).toBe(35)
     });
 
-    test("returns sum of digits in a decimal number", ()=> {
+    test("returns sum of digits in a decimal number", () => {
         expect(sumDigits(12.3)).toBe(6);
         expect(sumDigits(49.0)).toBe(13);
         expect(sumDigits(658.79)).toBe(35)
@@ -67,5 +68,32 @@ describe("createRange", () => {
 
     test("returns error message if step called with value 0", () => {
         expect(createRange(10, 1, 0)).toBe("it is not possible to create a range with these parameters");
-    }); 
+    });
+});
+
+describe("getScreentimeAlertList", () => {
+    test("returns username is user has screen time > 100 minutes", () => {
+        const users = [
+            {
+                username: "beth_1234",
+                name: "Beth Smith",
+                screenTime: [
+                    { date: "2019-05-01", usage: { twitter: 34, instagram: 22, facebook: 40 } },
+                    { date: "2019-05-02", usage: { twitter: 56, instagram: 40, facebook: 31 } },
+                    { date: "2019-05-03", usage: { twitter: 12, instagram: 15, facebook: 19 } },
+                    { date: "2019-05-04", usage: { twitter: 10, instagram: 56, facebook: 61 } },
+                ]
+            },
+            {
+                username: "sam_j_1989",
+                name: "Sam Jones",
+                screenTime: [
+                    { date: "2019-06-11", usage: { mapMyRun: 0, whatsApp: 0, facebook: 0, safari: 10 } },
+                    { date: "2019-06-13", usage: { mapMyRun: 0, whatsApp: 0, facebook: 0, safari: 16 } },
+                    { date: "2019-06-14", usage: { mapMyRun: 0, whatsApp: 0, facebook: 0, safari: 31 } },
+                ]
+            },
+        ]
+        expect(getScreentimeAlertList(users, "2019-05-02")).toEqual(["beth_1234"]);
+    });
 })
