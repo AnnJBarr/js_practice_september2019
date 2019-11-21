@@ -1,5 +1,6 @@
 const { 
-    sumDigits
+    sumDigits,
+    createRange
 } = require("../challenges/week10");
 
 
@@ -22,4 +23,19 @@ describe("sumDigits", () => {
         expect(sumDigits(49.0)).toBe(13);
         expect(sumDigits(658.79)).toBe(35)
     });
+});
+
+
+describe("createRange", () => {
+    test("returns sequential count if no step defined", () => {
+        expect(createRange(1, 5)).toBe([1, 2, 3, 4, 5]);
+    });
+
+    //deals with step
+
+    //deals with negative numbers
+
+    //deals with decimals in start finish
+
+    //deals with decimals in step
 })
