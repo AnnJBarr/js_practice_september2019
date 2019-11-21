@@ -17,6 +17,9 @@ describe("sumDigits", () => {
         expect(sumDigits(65879)).toBe(35)
     });
 
-    //deal with decimal numbers
-
+    test("returns sum of digits in a decimal number", ()=> {
+        expect(sumDigits(12.3)).toBe(6);
+        expect(sumDigits(49.0)).toBe(13);
+        expect(sumDigits(658.79)).toBe(35)
+    });
 })
