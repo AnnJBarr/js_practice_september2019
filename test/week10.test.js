@@ -32,6 +32,9 @@ describe("createRange", () => {
     });
 
     //deals with step
+    test("returns sequential count if step defined", () => {
+        expect(createRange(1, 10, 2)).toEqual([1, 3, 5, 7, 9]);
+    });
 
     //deals with negative numbers
 

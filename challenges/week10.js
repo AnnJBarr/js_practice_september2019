@@ -26,8 +26,10 @@ const createRange = (start, end, step) => {
   if (start === undefined) throw new Error("start is required");
   if (end === undefined) throw new Error("end is required");
   const range = [];
-  //count = 0
-  for(let i = start; i<=end; i++){
+  if(step === undefined){
+    step = 1;
+  }
+  for(let i = start; i<=end; i=i+step){
     range.push(i);
   }
   return range
