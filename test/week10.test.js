@@ -60,7 +60,8 @@ describe("createRange", () => {
         expect(createRange(1, 10, 2.7)).toEqual([1, 3.7, 6.4, 9.1]);
     });
 
-    test("returns error message if start > end with positive step", () => {
-        expect(createRange(10, 1, 2)).toBe("it is not possible to create a range with these parameters")
-    })
+    test("returns error message if start > end with positive step or end > start and negative step", () => {
+        expect(createRange(10, 1, 2)).toBe("it is not possible to create a range with these parameters");
+        expect(createRange(1, 10, -2)).toBe("it is not possible to create a range with these parameters");
+    });
 })
