@@ -56,4 +56,7 @@ describe("createRange", () => {
     });
 
     //deals with decimals in step
+    test("returns sequential count if decimal start", () => {
+        expect(createRange(1, 10, 2.7)).toEqual([1, 3.7, 6.4, 9.1]);
+    });
 })
