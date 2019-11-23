@@ -104,6 +104,7 @@ const getScreentimeAlertList = (users, date) => {
  */
 const hexToRGB = hexStr => {
   if (hexStr === undefined) throw new Error("hexStr is required");
+  if (hexStr[0] !== '#' || hexStr.length > 7 || !/^[a-f\d #]+$/i.test(hexStr)) { return "your hex string is not in the correct format" }
   const hexToDec = str => {
     switch (str.toUpperCase()) {
       case '0': return 0

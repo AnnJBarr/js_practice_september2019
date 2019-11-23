@@ -162,4 +162,12 @@ describe("hextoRGB", () => {
     test("deals with hex string without leading #", () => {
         expect(hexToRGB("FFFFFF")).toBe("your hex string is not in the correct format");
     });
+
+    test("deals with hex string with too many characters", () => {
+        expect(hexToRGB("#FFFFFFFF")).toBe("your hex string is not in the correct format");
+    });
+
+    test("deals with hex string non hex characters", () => {
+        expect(hexToRGB("#FFFFFG")).toBe("your hex string is not in the correct format");
+    });
 });
