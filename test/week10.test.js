@@ -2,7 +2,8 @@ const {
     sumDigits,
     createRange,
     getScreentimeAlertList,
-    hexToRGB
+    hexToRGB,
+    findWinner
 } = require("../challenges/week10");
 
 
@@ -119,7 +120,7 @@ describe("getScreentimeAlertList", () => {
                 ]
             },
         ]
-        expect(getScreentimeAlertList(users, "2019-06-14")).toEqual([]);   
+        expect(getScreentimeAlertList(users, "2019-06-14")).toEqual([]);
     });
     test("returns array of all usernames where user has screen time > 100 minutes", () => {
         const users = [
@@ -160,14 +161,29 @@ describe("hextoRGB", () => {
     });
 
     test("deals with hex string without leading #", () => {
-        expect(hexToRGB("FFFFFF")).toBe("your hex string is not in the correct format");
+        expect(() => {
+            hexToRGB("FFFFFF");
+        }).toThrow("your hex string is not in the correct format");
     });
 
     test("deals with hex string with too many characters", () => {
-        expect(hexToRGB("#FFFFFFFF")).toBe("your hex string is not in the correct format");
+        expect(() => {
+            hexToRGB("#FFFFFFFF");
+        }).toThrow("your hex string is not in the correct format");
     });
 
     test("deals with hex string non hex characters", () => {
-        expect(hexToRGB("#FFFFFG")).toBe("your hex string is not in the correct format");
+        expect(() => {
+            hexToRGB("#FFFFFG");
+        }).toThrow("your hex string is not in the correct format");
     });
 });
+
+describe("find Winner", () => {
+    test("correct character if there is a winning line", () => {
+        const board = [['X', 'X', 'X'], 
+        ['X','0','0'],
+        ['0','X','0']]
+        expect(findWinner(board)).toBe('X');
+    });
+    });
