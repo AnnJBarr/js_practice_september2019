@@ -198,4 +198,7 @@ describe("find Winner", () => {
         expect(findWinner([['0', '0', 'X'],['0', 'X', 'X'],['X', 'X', '0']])).toBe('X');
         expect(findWinner([['0', 'X', '0'],['X', '0', '0'],['0', 'X', 'X']])).toBe('0');
     });
+    test("a combination of 3 nulls does not return a winner but a null", () => {
+        expect(findWinner([[null, 'X' , null], [null,null,null],['X',null,"0"]])).toBe(null);
+    });
 });
