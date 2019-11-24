@@ -181,105 +181,21 @@ describe("hextoRGB", () => {
 
 describe("find Winner", () => {
     test("correct character if there is a winning line", () => {
-        const board = [['X', 'X', 'X'], 
-        ['X','0','0'],
-        ['0','X','0']]
-        expect(findWinner(board)).toBe('X');
+        expect(findWinner([['X', 'X', 'X'], ['X', '0', '0'],['0', 'X', '0']])).toBe('X');
+        expect(findWinner([['0', '0', '0'],['X', '0', '0'], ['0', 'X', '0']])).toBe('0');
+        expect(findWinner([['X', '0', 'X'],['X', 'X', 'X'],['0', 'X', '0']])).toBe('X');
+        expect(findWinner([['0', 'X', '0'],['0', '0', '0'],['0', 'X', '0']])).toBe('0');
+        expect(findWinner([['X', '0', 'X'],['0', 'X', '0'],['X', 'X', 'X']])).toBe('X');
+        expect(findWinner([['0', 'X', '0'],['X', '0', 'X'],['0', '0', '0']])).toBe('0');
+        expect(findWinner([['X', '0', 'X'],['X', '0', '0'],['X', 'X', '0']])).toBe('X');
+        expect(findWinner([['0', '0', 'X'],['0', 'X', '0'],['0', 'X', '0']])).toBe('0');
+        expect(findWinner([['0', 'X', 'X'],['X', 'X', 'X'],['0', 'X', '0']])).toBe('X');
+        expect(findWinner([['X', '0', 'X'],['0', '0', 'X'],['0', 'X', 'X']])).toBe('X');
+        expect(findWinner([['X', '0', '0'],['X', '0', '0'],['0', '0', 'X']])).toBe('0');
+        expect(findWinner([['0', 'X', '0'],['0', 'X', '0'],['X', '0', '0']])).toBe('0');
+        expect(findWinner([['X', '0', '0'],['0', 'X', 'X'],['0', 'X', 'X']])).toBe('X');
+        expect(findWinner([['0', 'X', 'X'],['X', '0', '0'],['X', 'X', '0']])).toBe('0');
+        expect(findWinner([['0', '0', 'X'],['0', 'X', 'X'],['X', 'X', '0']])).toBe('X');
+        expect(findWinner([['0', 'X', '0'],['X', '0', '0'],['0', 'X', 'X']])).toBe('0');
     });
-    test("correct character if there is a winning line", () => {
-        const board = [['0', '0', '0'], 
-        ['X','0','0'],
-        ['0','X','0']]
-        expect(findWinner(board)).toBe('0');
-    });
-    test("correct character if there is a winning line", () => {
-        const board = [['X', '0', 'X'], 
-        ['X','X','X'],
-        ['0','X','0']]
-        expect(findWinner(board)).toBe('X');
-    });
-    test("correct character if there is a winning line", () => {
-        const board = [['0', 'X', '0'], 
-        ['0','0','0'],
-        ['0','X','0']]
-        expect(findWinner(board)).toBe('0');
-    });
-    test("correct character if there is a winning line", () => {
-        const board = [['X', '0', 'X'], 
-        ['0','X','0'],
-        ['X','X','X']]
-        expect(findWinner(board)).toBe('X');
-    });
-    test("correct character if there is a winning line", () => {
-        const board = [['0', 'X', '0'], 
-        ['X','0','X'],
-        ['0','0','0']]
-        expect(findWinner(board)).toBe('0');
-    });
-    
-
-    //EIGHT MORE TESTS FOR OTHER WINNING COMBINATIONS X & 0
-
-    test("correct character if there is a winning line", () => {
-        const board = [['X', '0', 'X'], 
-        ['X','0','0'],
-        ['X','X','0']]
-        expect(findWinner(board)).toBe('X');
-    });
-    test("correct character if there is a winning line", () => {
-        const board = [['0', '0', 'X'], 
-        ['0','X','0'],
-        ['0','X','0']]
-        expect(findWinner(board)).toBe('0');
-    });
-    test("correct character if there is a winning line", () => {
-        const board = [['0', 'X', 'X'], 
-        ['X','X','X'],
-        ['0','X','0']]
-        expect(findWinner(board)).toBe('X');
-    });
-    test("correct character if there is a winning line", () => {
-        const board = [['X', '0', '0'], 
-        ['X','0','0'],
-        ['0','0','X']]
-        expect(findWinner(board)).toBe('0');
-    });
-    test("correct character if there is a winning line", () => {
-        const board = [['X', '0', 'X'], 
-        ['0','0','X'],
-        ['0','X','X']]
-        expect(findWinner(board)).toBe('X');
-    });
-    test("correct character if there is a winning line", () => {
-        const board = [['0', 'X', '0'], 
-        ['0','X','0'],
-        ['X','0','0']]
-        expect(findWinner(board)).toBe('0');
-    });
-    test("correct character if there is a winning line", () => {
-        const board = [['X', '0', '0'], 
-        ['0','X','X'],
-        ['0','X','X']]
-        expect(findWinner(board)).toBe('X');
-    });
-    test("correct character if there is a winning line", () => {
-        const board = [['0', 'X', 'X'], 
-        ['X','0','0'],
-        ['X','X','0']]
-        expect(findWinner(board)).toBe('0');
-    });
-    test("correct character if there is a winning line", () => {
-        const board = [['0', '0', 'X'], 
-        ['0','X','X'],
-        ['X','X','0']]
-        expect(findWinner(board)).toBe('X');
-    });
-    test("correct character if there is a winning line", () => {
-        const board = [['0', 'X', '0'], 
-        ['X','0','0'],
-        ['0','X','X']]
-        expect(findWinner(board)).toBe('0');
-    });
-
-    
-    });
+});
