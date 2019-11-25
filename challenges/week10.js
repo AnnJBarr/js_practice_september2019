@@ -145,7 +145,11 @@ const findWinner = board => {
   if (board === undefined) throw new Error("board is required");
   const sameCaseBoard = board.map(function (line) {
     return line.map(function (playItem) {
-      return playItem.toUpperCase();
+      if (playItem !==null) {
+      return playItem.toUpperCase()
+    } else {
+      return null
+    }
     })
   })
   switch (true) {
