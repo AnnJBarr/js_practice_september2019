@@ -201,4 +201,7 @@ describe("find Winner", () => {
     test("a combination of 3 nulls does not return a winner but a null", () => {
         expect(findWinner([[null, 'X' , null], [null,null,null],['X',null,"0"]])).toBe(null);
     });
+    test("returns 'X' even if lower case x passed into the function", () => {
+        expect(findWinner([['X', 'x', 'X'], ['X', '0', '0'],['0', 'X', '0']])).toBe('X');    
+    })
 });

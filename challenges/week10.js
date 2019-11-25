@@ -143,15 +143,20 @@ const hexToRGB = hexStr => {
  */
 const findWinner = board => {
   if (board === undefined) throw new Error("board is required");
+  const sameCaseBoard = board.map(function (line) {
+    return line.map(function (playItem) {
+      return playItem.toUpperCase();
+    })
+  })
   switch (true) {
-    case board[0][0] === board[0][1] && board[0][0] === board[0][2] && board[0][0] !== null:
-    case board[0][0] === board[1][0] && board[0][0] === board[2][0] && board[0][0] !== null:
-    case board[0][0] === board[1][1] && board[0][0] === board[2][2] && board[0][0] !== null: return board[0][0]
-    case board[1][0] === board[1][1] && board[1][0] === board[1][2] && board[0][0] !== null: return board[1][0]
-    case board[2][0] === board[2][1] && board[2][0] === board[2][2] && board[0][0] !== null:
-    case board[0][2] === board[1][1] && board[0][2] === board[2][0] && board[0][0] !== null: return board[2][0]
-    case board[0][1] === board[1][1] && board[0][1] === board[2][1] && board[0][0] !== null: return board[0][1]
-    case board[0][2] === board[1][2] && board[0][2] === board[2][2] && board[0][0] !== null: return board[0][2]
+    case sameCaseBoard[0][0] === sameCaseBoard[0][1] && sameCaseBoard[0][0] === sameCaseBoard[0][2] && sameCaseBoard[0][0] !== null:
+    case sameCaseBoard[0][0] === sameCaseBoard[1][0] && sameCaseBoard[0][0] === sameCaseBoard[2][0] && sameCaseBoard[0][0] !== null:
+    case sameCaseBoard[0][0] === sameCaseBoard[1][1] && sameCaseBoard[0][0] === sameCaseBoard[2][2] && sameCaseBoard[0][0] !== null: return sameCaseBoard[0][0]
+    case sameCaseBoard[1][0] === sameCaseBoard[1][1] && sameCaseBoard[1][0] === sameCaseBoard[1][2] && sameCaseBoard[0][0] !== null: return sameCaseBoard[1][0]
+    case sameCaseBoard[2][0] === sameCaseBoard[2][1] && sameCaseBoard[2][0] === sameCaseBoard[2][2] && sameCaseBoard[0][0] !== null:
+    case sameCaseBoard[0][2] === sameCaseBoard[1][1] && sameCaseBoard[0][2] === sameCaseBoard[2][0] && sameCaseBoard[0][0] !== null: return sameCaseBoard[2][0]
+    case sameCaseBoard[0][1] === sameCaseBoard[1][1] && sameCaseBoard[0][1] === sameCaseBoard[2][1] && sameCaseBoard[0][0] !== null: return sameCaseBoard[0][1]
+    case sameCaseBoard[0][2] === sameCaseBoard[1][2] && sameCaseBoard[0][2] === sameCaseBoard[2][2] && sameCaseBoard[0][0] !== null: return sameCaseBoard[0][2]
     default: return null
   }
 };
