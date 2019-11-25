@@ -202,6 +202,16 @@ describe("find Winner", () => {
         expect(findWinner([[null, 'X' , null], [null,null,null],['X',null,"0"]])).toBe(null);
     });
     test("returns 'X' even if lower case x passed into the function", () => {
-        expect(findWinner([['X', 'x', 'X'], ['X', '0', '0'],['0', 'X', '0']])).toBe('X');    
-    })
+        expect(findWinner([['x', 'x', 'X'], ['X', '0', '0'],['0', 'X', '0']])).toBe('X');    
+    });
+    test("board with fewer than three rows", () => {
+        expect(() => {
+            findWinner([['X', '0', 'X'], ['0', 'X', 'X']]);
+        }).toThrow("this is not a valid noughts and crosses board!");
+    });
+    test("board with fewer than three items in any one row", () => {
+        expect(() => {
+            findWinner([['X', '0', 'X'], ['0', 'X'], ['X', '0', 'X']]);
+        }).toThrow("this is not a valid noughts and crosses board!");
+    });
 });

@@ -143,13 +143,21 @@ const hexToRGB = hexStr => {
  */
 const findWinner = board => {
   if (board === undefined) throw new Error("board is required");
+  const checkBoard = (board) => {
+    let noughtCrossBoard = true
+    board.forEach(line => {
+      if (line.length !== 3) { noughtCrossBoard = false }
+    })
+    return noughtCrossBoard
+  }
+  if (board.length < 3 || checkBoard(board) === false) throw new Error("this is not a valid noughts and crosses board!")
   const sameCaseBoard = board.map(function (line) {
     return line.map(function (playItem) {
-      if (playItem !==null) {
-      return playItem.toUpperCase()
-    } else {
-      return null
-    }
+      if (playItem !== null) {
+        return playItem.toUpperCase()
+      } else {
+        return null
+      }
     })
   })
   switch (true) {
