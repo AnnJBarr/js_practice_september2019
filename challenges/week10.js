@@ -6,8 +6,9 @@ const sumDigits = n => {
   const result = null;
   let total = 0;
   if (typeof (n) === "number") {
-    for (let i = 0; i < n.toString().replace(/[.]/g, '').length; i++) {
-      total = total + parseFloat(n.toString().replace(/[.]/g, '')[i]);
+    const numberToString = n.toString().replace(/[.]/g, '');
+    for (let i = 0; i < numberToString.length; i++) {
+      total = total + parseFloat(numberToString[i]);
     }
     return total;
   }
