@@ -1,6 +1,5 @@
 function getSquares(nums) {
   if (nums === undefined) throw new Error("nums is required");
-  // Your code here!
   const squaredNums = nums.map(function (num) {
     return Math.pow(num, 2);
   });
@@ -9,9 +8,6 @@ function getSquares(nums) {
 
 function camelCaseWords(words) {
   if (words === undefined) throw new Error("words is required");
-  // Your code here!
-  //if array.length < 2 return str=arr[0]
-  //for >=2 each item in turn, capitalise str=str+arr[i]
   let camelStr = words[0];
   if (words.length === 1) {
     return camelStr;
@@ -25,11 +21,8 @@ function camelCaseWords(words) {
 
 function getTotalSubjects(people) {
   if (people === undefined) throw new Error("people is required");
-  // Your code here!
-  //array of objects
-  // for each item of array get .subjects length and count
   let subjectCount = 0;
-  for (i = 0; i < people.length; i++) {
+  for (let i = 0; i < people.length; i++) {
     for (let key in people[i]) {
       const value = people[i][key]
       if (key === "subjects") {
@@ -44,7 +37,6 @@ function getTotalSubjects(people) {
 function checkIngredients(menu, ingredient) {
   if (menu === undefined) throw new Error("menu is required");
   if (!ingredient) throw new Error("ingredient is required");
-  // Your code here!
   let ingredientFound = false;
   for (let i = 0; i < menu.length; i++) {
     if (menu[i].ingredients.includes(ingredient)) {
@@ -57,7 +49,6 @@ function checkIngredients(menu, ingredient) {
 function duplicateNumbers(arr1, arr2) {
   if (arr1 === undefined) throw new Error("arr1 is required");
   if (arr2 === undefined) throw new Error("arr2 is required");
-  // Your code here!
   const compareArray = arr1.filter(element => arr2.includes(element))
   compareArray.sort((a, b) => a - b);
   const uniqueSet = new Set(compareArray)

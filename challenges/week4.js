@@ -1,6 +1,5 @@
 function findSmallNums(nums) {
   if (!nums) throw new Error("nums is required");
-  // Your code here
   const smallNumbers = nums.filter(number => {
     return number < 1;
   });
@@ -10,7 +9,6 @@ function findSmallNums(nums) {
 function findNamesBeginningWith(names, char) {
   if (!names) throw new Error("names is required");
   if (!char) throw new Error("char is required");
-  // Your code here
   const charNames = names.filter(function (item) {
     if (item[0] === char) {
       return true;
@@ -23,7 +21,6 @@ function findNamesBeginningWith(names, char) {
 
 function findVerbs(words) {
   if (!words) throw new Error("words is required");
-  // Your code here
   const verbsFound = words.filter(function (word) {
     const findTo = (word.slice(0, 3));
     if (findTo === "to ") {
@@ -37,7 +34,6 @@ function findVerbs(words) {
 
 function getIntegers(nums) {
   if (!nums) throw new Error("nums is required");
-  // Your code here
   let areIntegers = [];
   nums.forEach(function (eachNums) {
     if (Number.isInteger(eachNums)) {
@@ -49,7 +45,6 @@ function getIntegers(nums) {
 
 function getCities(users) {
   if (!users) throw new Error("users is required");
-  // Your code here
   const userCities = users.map(function (user) {
     const userData = user.data.city.displayName
     return userData
@@ -59,7 +54,6 @@ function getCities(users) {
 
 function getSquareRoots(nums) {
   if (!nums) throw new Error("nums is required");
-  // Your code here
   const squareRoots = nums.map(n => {
     return Math.round(Math.sqrt(n) * 100) / 100
   });
@@ -81,7 +75,6 @@ function findSentencesContaining(sentences, str) {
 
 function getLongestSides(triangles) {
   if (!triangles) throw new Error("triangles is required");
-  // Your code here
   let longestSides = [];
   triangles.forEach(function (triangle) {
     longestSides.push(Math.max(...triangle));

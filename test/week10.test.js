@@ -211,7 +211,7 @@ describe("find Winner", () => {
     });
     test("board with fewer than three items in any one row", () => {
         expect(() => {
-            findWinner([['X', '0', 'X'], ['0', 'X'], ['X', '0', 'X']]);
+            findWinner([['X', '0', 'X'], ['0', 'X'], ['X', '0', 'X2']]);
         }).toThrow("this is not a valid noughts and crosses board!");
     });
 });
